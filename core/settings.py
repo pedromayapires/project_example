@@ -75,6 +75,28 @@ TEMPLATES = [
 WSGI_APPLICATION = "core.wsgi.application"
 
 
+# Configure this properly in the future
+# THROTTLE_RATE_ANON = os.environ.get("THROTTLE_RATE_ANON", "100/day")
+# THROTTLE_RATE_USER = os.environ.get("THROTTLE_RATE_USER", "1000/day")
+# REST_FRAMEWORK = {
+#     # this sets all endpoints to need authentication by default
+#     "DEFAULT_PERMISSION_CLASSES": (
+#         "rest_framework.permissions.IsAuthenticated",
+#     ),
+#     "DEFAULT_AUTHENTICATION_CLASSES": [
+#         "rest_framework_simplejwt.authentication.JWTAuthentication",
+#     ],
+#     "DEFAULT_THROTTLE_CLASSES": (
+#         "rest_framework.throttling.AnonRateThrottle",
+#         "rest_framework.throttling.UserRateThrottle",
+#     ),
+#     "DEFAULT_THROTTLE_RATES": {
+#         "anon": THROTTLE_RATE_ANON,
+#         "user": THROTTLE_RATE_USER,
+#     },
+# }
+
+
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 DB_USER = os.environ.get("DB_USER", "django")

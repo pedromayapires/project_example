@@ -1,7 +1,7 @@
-from rest_framework.throttling import UserRateThrottle
+# from rest_framework.throttling import UserRateThrottle
 from rest_framework.decorators import (
     api_view,
-    throttle_classes,
+    # throttle_classes,
 )
 from django.http import JsonResponse
 import yfinance as yf
@@ -10,7 +10,7 @@ from core.utils import exception_handler, LOGGER
 
 
 @api_view(["GET"])
-@throttle_classes([UserRateThrottle])
+# @throttle_classes([UserRateThrottle])
 @exception_handler
 def get_daily_price(request, ticker, from_date, to_date):
     """ Return a timeseries with the price info of the company associated with

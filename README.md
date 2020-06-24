@@ -6,6 +6,7 @@
 * Add unit testing
     * Use Django temp DB
     * Create post requests examples to skip postman testing
+* Add authentication and throtteling
 * Update installation process for ubuntu 20.04
 * Update docker instalation for ubuntu 20.04 and this project
 
