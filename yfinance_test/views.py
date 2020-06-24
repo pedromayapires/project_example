@@ -28,6 +28,7 @@ def get_daily_price(request, ticker, from_date, to_date):
         JsonResponse (object): Returns timeseries of the associated company
     """
     LOGGER.debug("Getting the daily price timeseries")
+    # get the information
     data = yf.download(ticker, start=from_date, end=to_date)
 
     # different ways to convert the data
