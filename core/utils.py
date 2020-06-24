@@ -6,13 +6,15 @@ import logging
 LOGGER = logging.getLogger()
 logging.config.dictConfig(settings.LOGGER_CONFIG)
 
+
 def exception_handler(function):
     def wrapper_function(*args, **kwargs):
         try:
             # run original function
             return function(*args, **kwargs)
         # catch other types of exceptions and handle them with different levels
-        # for frontend display
+        # for frontend display, maybe just send httpresponse with appropriate
+        # status
         # except OtherException as ex:
         #     LOGGER.exception(str(ex))
         #     return JsonResponse(
@@ -27,14 +29,8 @@ def exception_handler(function):
             # this will be logged in a file
             LOGGER.exception(str(ex))
             # ************************************************************
-            # More should be done here, like send an email do admin users
+            # More could be done here, like send an email do admin users
             # ************************************************************
-            return JsonResponse(
-                {
-                    # 0 an unexpected, more serious, exception
-                    "error_level": 0,
-                    "message": "Unexpected error, admins will be notified",
-                }
-            )
+            return JsonResponse({"message": "Logged unexpected error"})
 
     return wrapper_function
