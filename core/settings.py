@@ -19,13 +19,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "e5dtgy%s-%2n_%vep8xu!r#2pc^7%yvs+0%u)5*j8ou+-r3-sk"
+SECRET_KEY = os.environ.get(
+    "DJANGO_SECRET_KEY", "e5dtgy%s-%2n_%vep8xu!r#2pc^7%yvs+0%u)5*j8ou+-r3-sk"
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"
 
-# This will be changed before going to production
-ALLOWED_HOSTS = ["*"]  # or the react server only
+# This should be limited to the frontend or allowing all because it's behind
+# an AWS load balancer/network and is never accessed directly
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
