@@ -37,6 +37,7 @@ def get_daily_price(request, ticker, from_date, to_date):
 
     # format the timestamp data from the index
     data.index = data.index.strftime("%Y-%m-%d")
+    # convert to dictionary
     return_data = data.to_dict()
 
     # return a json string
