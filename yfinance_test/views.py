@@ -28,12 +28,19 @@ def get_daily_price(request, ticker, from_date, to_date):
         JsonResponse (object): Returns timeseries of the associated company
     """
     LOGGER.debug("Getting the daily price timeseries")
-    data = yf.download(ticker, start=from_date, end=to_date, interval="1d")
+    data = yf.download(ticker, start=from_date, end=to_date)
 
-    return_data = {}
-    # return_data = data.to_json()
-    # data["Timestamp"] = data["Timestamp"].astype(str)
-    # data.Timestamp.dt.strftime("%Y-%m-%d")
+    # different ways to convert the data
+    # from collections import OrderedDict
+    # return_data = data.to_dict(into=OrderedDict)
+    # data.index = data.index.map(str)
+
+    # format the timestamp data from the index
+    data.index = data.index.strftime("%Y-%m-%d")
     return_data = data.to_dict()
-    LOGGER.debug(return_data)
+
+    # return a json string
+    # return_data = data.to_json()
+
+    # i kept the adj close value, not sure if it's necessary
     return JsonResponse(return_data, safe=False)
