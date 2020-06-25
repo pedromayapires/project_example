@@ -119,25 +119,19 @@ def get_recommendations(request, ticker, from_date, to_date=None):
     # does not work
     # return_data = data[data.index.between(from_date, to_date)]
 
-    import datetime
-    from datetime import date
-
-    # df.loc[(df.date >= i[0]) & (df.date <= i[-1])]
-    # .loc['2000-6-1':'2000-6-10']
-    # returned_data = data.index.to_datetime()
-    # data.loc(
-    #     (data.index >= date.fromisoformat(from_date))
-    #     & (data.index <= date.fromisoformat(to_date))
-    # )
-    return_data = data["From Grade"].loc[from_date:to_date]
+    return_data = data["To Grade"].loc[from_date:to_date]
     # LOGGER.debug(data)
     # LOGGER.debug("----------------------------")
-    LOGGER.debug(return_data)
-    LOGGER.debug("----------------------------")
-    LOGGER.debug(data["From Grade"][return_data])
+    # LOGGER.debug(return_data)
+
+    # df_filtered = df.query('a > 0').query('0 < b < 2')
+    # LOGGER.debug("----------------------------")
+    # LOGGER.debug(data.query('To Grade > 0'))
 
     # convert the timestamp info
     data.index = data.index.strftime("%Y-%m-%d")
+    # data = data.query(return_data)
+
     # get the data in dictionary format
     return_data = data.to_dict()
 
