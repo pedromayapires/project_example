@@ -9,6 +9,9 @@ import yfinance as yf
 
 from core.utils import exception_handler, LOGGER
 
+# yfinance github page
+# https://github.com/ranaroussi/yfinance
+
 
 @api_view(["GET"])
 # @throttle_classes([UserRateThrottle])
@@ -112,6 +115,26 @@ def get_recommendations(request, ticker, from_date, to_date=None):
     # is the idea to filter the dates obtained or is there a way to filter the
     # data from the library itself?
     data = ticker.recommendations
+
+    # does not work
+    # return_data = data[data.index.between(from_date, to_date)]
+
+    import datetime
+    from datetime import date
+
+    # df.loc[(df.date >= i[0]) & (df.date <= i[-1])]
+    # .loc['2000-6-1':'2000-6-10']
+    # returned_data = data.index.to_datetime()
+    # data.loc(
+    #     (data.index >= date.fromisoformat(from_date))
+    #     & (data.index <= date.fromisoformat(to_date))
+    # )
+    return_data = data["From Grade"].loc[from_date:to_date]
+    # LOGGER.debug(data)
+    # LOGGER.debug("----------------------------")
+    LOGGER.debug(return_data)
+    LOGGER.debug("----------------------------")
+    LOGGER.debug(data["From Grade"][return_data])
 
     # convert the timestamp info
     data.index = data.index.strftime("%Y-%m-%d")
