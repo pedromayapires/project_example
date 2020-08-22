@@ -1,0 +1,79 @@
+[
+  {
+    "model": "cv.languagelevel",
+    "pk": 1,
+    "fields": {
+      "name": "Native",
+      "rank": 1
+    }
+  },
+  {
+    "model": "cv.languagelevel",
+    "pk": 2,
+    "fields": {
+      "name": "Fluent",
+      "rank": 2
+    }
+  },
+  {
+    "model": "cv.language",
+    "pk": 1,
+    "fields": {
+      "name": "Portuguese"
+    }
+  },
+  {
+    "model": "cv.language",
+    "pk": 2,
+    "fields": {
+      "name": "English",
+      "level": 2
+    }
+  },
+  {
+    "model": "cv.company",
+    "pk": 1,
+    "fields": {
+      "name": "Affinity"
+    }
+  },
+  {
+    "model": "cv.company",
+    "pk": 2,
+    "fields": {
+      "name": "Dohop"
+    }
+  },
+  {
+    "model": "cv.role",
+    "pk": 1,
+    "fields": {
+      "name": "Backend"
+    }
+  },
+  {
+    "model": "cv.skill",
+    "pk": 1,
+    "fields": {
+      "name": "Python"
+    }
+  },
+  {
+    "model": "cv.project",
+    "pk": 1,
+    "fields": {
+      "title": "Travelling search engine",
+      "accomplished": "Managing a team and creating the backend and database structure for a new software tool to gather flight and customer information and manage that information.",
+      "from_date": "01-10-2020",
+      "to_date": "17-04-2020",
+      "roles": [
+        1
+      ],
+      "skills": [
+        1
+      ],
+      "agency": 1,
+      "client": 2
+    }
+  }
+]
