@@ -1,5 +1,38 @@
 [
   {
+    "model": "cv.skill",
+    "pk": 1,
+    "fields": {
+      "name": "Python"
+    }
+  },
+  {
+    "model": "cv.course",
+    "pk": 1,
+    "fields": {
+      "name": "Engenharia de informática"
+    }
+  },
+  {
+    "model": "cv.personalinfo",
+    "pk": 1,
+    "fields": {
+      "name": "Pedro Maya Pires",
+      "intro": "test intro",
+      "phone_number": "911231212",
+      "location": "Oeiras",
+      "email": "pedromayapires@gmail.com",
+      "skype": "pedromayapires",
+      "linkedin": "test linkedin",
+      "skills": [
+        1
+      ],
+      "courses": [
+        1
+      ]
+    }
+  },
+  {
     "model": "cv.languagelevel",
     "pk": 1,
     "fields": {
@@ -26,7 +59,24 @@
     "model": "cv.language",
     "pk": 2,
     "fields": {
-      "name": "English",
+      "name": "English"
+    }
+  },
+  {
+    "model": "cv.languagelearned",
+    "pk": 1,
+    "fields": {
+      "person": 1,
+      "language": 1,
+      "level": 1
+    }
+  },
+  {
+    "model": "cv.languagelearned",
+    "pk": 2,
+    "fields": {
+      "person": 1,
+      "language": 2,
       "level": 2
     }
   },
@@ -52,20 +102,14 @@
     }
   },
   {
-    "model": "cv.skill",
-    "pk": 1,
-    "fields": {
-      "name": "Python"
-    }
-  },
-  {
     "model": "cv.project",
     "pk": 1,
     "fields": {
       "title": "Travelling search engine",
       "accomplished": "Managing a team and creating the backend and database structure for a new software tool to gather flight and customer information and manage that information.",
-      "from_date": "01-10-2020",
-      "to_date": "17-04-2020",
+      "from_date": "2020-10-01",
+      "to_date": "2020-04-17",
+      "person": 1,
       "roles": [
         1
       ],

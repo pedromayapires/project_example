@@ -24,7 +24,11 @@ SECRET_KEY = os.environ.get(
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"
+# DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"
+
+# this needs to be true in order to get the proper css in the admin area
+# needs investigation
+DEBUG = True
 
 # This should be limited to the frontend or allowing all because it's behind
 # an AWS load balancer/network and is never accessed directly
@@ -42,6 +46,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "core",
     "yfinance_test",
+    "cv",
 ]
 
 MIDDLEWARE = [
@@ -146,8 +151,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# # this will copy all static data to the specified path above
+# python manage.py collectstatic
 STATIC_URL = "/static/"
-
 
 # Logging
 LOG_LEVEL = os.environ.get("LOG_LEVEL", "DEBUG")
