@@ -2,13 +2,11 @@
 > Basic example project for either companies that require a test or just my own samples for future copy pasting in other projects
 
 ## TODO
-* Finish the yfinance test
 * Add unit testing
     * Use Django temp DB
     * Create post requests examples to skip postman testing
 * Add authentication and throtteling
 * Update installation process for ubuntu 20.04
-* Update docker instalation for ubuntu 20.04 and this project
 
 ## Installation
 ### Environment variables (these need to be set for production):
@@ -29,7 +27,7 @@
 * python manage.py createsuperuser
 * python manage.py runserver 0.0.0.0:8000
 
-### Docker in Ubuntu 18.04:
+### Docker in Ubuntu 18.04 & 20.04:
 * sudo apt update
 * sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
 * curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -

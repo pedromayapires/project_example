@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  db:
+    image: postgres:alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_USER: django
+      POSTGRES_DB: django_db
+
+  backend:
+    build: .
+    working_dir: /django_proj
+    command: |
+      /bin/sh -c "
+        set -e \
+        && python3 manage.py migrate \
+        && python3 manage.py loaddata */fixtures.json \
+        && python3 manage.py runserver 0.0.0.0:8000"
+    environment:
+    - DB_HOST=db
+    ports:
+    - "8000:8000"
+    depends_on:
+    - db
